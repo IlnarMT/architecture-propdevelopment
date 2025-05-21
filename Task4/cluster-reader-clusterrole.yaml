@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-reader-role
+rules:
+  # все ресурсы core (""), кроме secrets
+  - apiGroups: [""]
+    resources:
+      - pods
+      - services
+      - configmaps
+      - persistentvolumeclaims
+      - persistentvolumes
+      - replicationcontrollers
+      - endpoints
+      - nodes
+      - namespaces
+      - events
+      - serviceaccounts
+    verbs:
+      - get
+      - list
+      - watch
